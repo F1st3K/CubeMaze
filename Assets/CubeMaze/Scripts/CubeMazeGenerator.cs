@@ -1,37 +1,25 @@
 using CubeTools;
-using UnityEngine;
 
 
 namespace CubeMaze.Scripts
 {
-    public class CubeMazeGenerator : MonoBehaviour
+    public static class CubeMazeGenerator
     {
-        [SerializeField] private GameObject prefabWall;
-        
-        private void Start()
+        public static Cube<MazeElement> Generate(Cube<MazeElement> maze)
         {
-            var cube = new CubeSurface<GameObject>(9, 9, 9);
-            for (int n = 0; n < cube.CountSurfaces; n++)
+            for (int n = 0; n < maze.Z; n++)
             {
-                for (int i = 0; i < cube[n].X; i++)
+                for (int i = 0; i < maze.Y; i++)
                 {
-                    for (int j = 0; j < cube[n].Y; j++)
+                    for (int j = 0; j < maze.X; j++)
                     {
-                        if (cube[n][i, j] == null)
-                            cube[n][i, j] = prefabWall;
+                        maze[n][i][j].Value = new MazeElement();
+                        maze[n][i][j].Value.StateChangeToWall();
                     }
                 }
             }
-            foreach (Surface<GameObject> elements in cube)
-            {
-                foreach (GameObject element in elements)
-                {
-                    if (element == null)
-                    {
-                        
-                    }
-                }
-            }
+
+            return maze;
         }
     }
 }

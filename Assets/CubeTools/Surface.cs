@@ -4,40 +4,38 @@ namespace CubeTools
 {
     public sealed class Surface<T> : IEnumerable, IEnumerator
     {
-        private T[,] _elements;
-        private int _currentI;
-        private int _currentJ;
-
-        public delegate void ElementChangedHandler(int i, int j);
-        public event ElementChangedHandler ElementChanged;
-        public int X => _elements.GetLength(0);
-        public int Y => _elements.GetLength(1);
-        public object Current => this[_currentI, _currentJ];
-
+        private Row<T>[] _rows;
+        private int _currentRow;
 
         public Surface(int x, int y)
         {
-            _elements = new T[x, y];
-            _currentI = 0;
-            _currentJ = -1;
+            X = x;
+            Y = y;
+            _rows = new Row<T>[Y];
+            _currentRow = -1;
+            for (int i = 0; i < _rows.Length; i++)
+            {
+                _rows[i] = new Row<T>(X);
+            }
         }
 
-        public T this[int i, int j]
+        public int X { get; }
+        
+        public int Y { get; }
+
+        public object Current => this[_currentRow];
+
+        public Row<T> this[int numberRow]
         {
             get
             {
-                i = CorrectorIndexes.GetIndex(i, X - 1);
-                j = CorrectorIndexes.GetIndex(j,  Y - 1);
-               return _elements [i, j]; 
+                numberRow = CorrectorIndexes.GetIndex(numberRow, X - 1);
+                return _rows[numberRow];
             }
             set
             {
-                i = CorrectorIndexes.GetIndex(i, X - 1);
-                j = CorrectorIndexes.GetIndex(j, Y - 1);
-                if (_elements[i, j].Equals(value))
-                    return;
-                _elements[i, j] = value;
-                ElementChanged?.Invoke(i, j);
+                numberRow = CorrectorIndexes.GetIndex(numberRow, X - 1);
+                _rows[numberRow] = value;
             }
         }
 
@@ -48,22 +46,13 @@ namespace CubeTools
 
         public bool MoveNext()
         {
-            _currentJ++;
-            if (_currentJ > _elements.GetLength(1))
-            {
-                _currentJ = 0;
-                _currentI++;
-                if (_currentI > _elements.GetLength(0))
-                    return false;
-            }
-
-            return true;
+            _currentRow++;
+            return (_currentRow < _rows.Length);
         }
 
         public void Reset()
         {
-            _currentI = 0;
-            _currentJ = -1;
+            _currentRow = -1;
         }
     }
 }

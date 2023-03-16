@@ -2,9 +2,9 @@
 {
     public class MazeElement
     {
-        public MazeElement(MazeElementState state)
+        public MazeElement()
         {
-            State = state;
+            State = MazeElementState.Wall;
         }
         
         public MazeElementState State { get; private set; }

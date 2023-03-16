@@ -29,7 +29,7 @@ namespace CubeMaze.Scripts
                     {
                         if (maze[n][i][j].Value.State == MazeElementState.Air)
                             return;
-                        var cubePosition = new Vector3(i, j, n);
+                        var cubePosition = new Vector3(n, i, j);
                         dynamicPosition = transform.position + new Vector3(cubePosition.x * Scale.x,
                             cubePosition.y * Scale.y, cubePosition.z * Scale.z);
                         Instantiate(prefabWall, dynamicPosition, dynamicRotation);

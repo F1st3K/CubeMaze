@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cube
+namespace CubeTools
 {
     public struct Dimension
     {

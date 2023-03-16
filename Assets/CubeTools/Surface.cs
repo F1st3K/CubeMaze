@@ -12,6 +12,8 @@ namespace CubeTools
         public event ElementChangedHandler ElementChanged;
         public int X => _elements.GetLength(0);
         public int Y => _elements.GetLength(1);
+        public object Current => this[_currentI, _currentJ];
+
 
         public Surface(int x, int y)
         {
@@ -63,7 +65,5 @@ namespace CubeTools
             _currentI = 0;
             _currentJ = -1;
         }
-
-        public object Current => this[_currentI, _currentJ];
     }
 }

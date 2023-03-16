@@ -30,6 +30,8 @@ namespace CubeTools
 
         public object Current => this[_currentSurface];
 
+        public int CountSurfaces => _surfaces.Length;
+
         public Surface<T> this[int numberSurface]
         {
             

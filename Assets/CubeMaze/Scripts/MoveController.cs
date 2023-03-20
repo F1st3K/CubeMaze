@@ -20,6 +20,11 @@ namespace CubeMaze.Scripts
                 hero.Move(Vector3.up, 1);
             if (Input.GetKey(KeyCode.LeftShift))
                 hero.Move(Vector3.down, 1);
+            
+            if (Input.GetKey(KeyCode.R))
+                new Navigation().Reload();
+            if (Input.GetKey(KeyCode.Escape))
+                new Navigation().Exit();
         }
     }
 }

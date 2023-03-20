@@ -93,7 +93,7 @@ MeshCollider:
   m_GameObject: {fileID: 782180631001129949}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -191,7 +191,7 @@ MeshCollider:
   m_GameObject: {fileID: 2531640230249368497}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -289,7 +289,7 @@ MeshCollider:
   m_GameObject: {fileID: 4341482811517635415}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -387,7 +387,7 @@ MeshCollider:
   m_GameObject: {fileID: 4649434986194725525}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -485,7 +485,7 @@ MeshCollider:
   m_GameObject: {fileID: 6940733161395784048}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -583,7 +583,7 @@ MeshCollider:
   m_GameObject: {fileID: 7152819543208365229}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -598,6 +598,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2406366721532914292}
   - component: {fileID: 2808518902722886345}
+  - component: {fileID: 428497577775621713}
+  - component: {fileID: 5053907926024126638}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Untagged
@@ -644,3 +646,28 @@ MonoBehaviour:
   quadX: {fileID: 2472735271306058931}
   quadY: {fileID: 1262614345649663104}
   quadZ: {fileID: 5307407610174435260}
+--- !u!65 &428497577775621713
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214442780561986579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5053907926024126638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214442780561986579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307aae0fd9e94971aeea4dd3495dcaba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

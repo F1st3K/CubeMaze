@@ -28,6 +28,7 @@ namespace CubeMaze.Scripts
             var maxCountPassDirection = 6;
             var counterRundomJumps = 0;
             var maxCountRundomJumps = 6;
+            var countSteps = 0;
             while (true)
             {
                 if (counterRundomJumps >= maxCountRundomJumps)
@@ -85,6 +86,8 @@ namespace CubeMaze.Scripts
                     continue;
                 }
                 maze[nextZ[0]][nextY[0]][nextX[0]].Value.StateChangeToAir();
+                maze[nextZ[0]][nextY[0]][nextX[0]].Value.CountSteps = countSteps;
+                countSteps++;
                 x = nextX[0];
                 y = nextY[0];
                 z = nextZ[0];
@@ -98,6 +101,8 @@ namespace CubeMaze.Scripts
                     continue;
                 }
                 maze[nextZ[1]][nextY[1]][nextX[1]].Value.StateChangeToAir();
+                maze[nextZ[1]][nextY[1]][nextX[1]].Value.CountSteps = countSteps;
+                countSteps++;
                 x = nextX[1];
                 y = nextY[1];
                 z = nextZ[1];

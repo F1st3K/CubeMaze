@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46c9141d40325ac48bef026b92be606f, type: 2}
+  - {fileID: 2100000, guid: da20c07ef1ba0ac4a9df1770d649083e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46c9141d40325ac48bef026b92be606f, type: 2}
+  - {fileID: 2100000, guid: da20c07ef1ba0ac4a9df1770d649083e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -258,7 +258,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46c9141d40325ac48bef026b92be606f, type: 2}
+  - {fileID: 2100000, guid: da20c07ef1ba0ac4a9df1770d649083e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -356,7 +356,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46c9141d40325ac48bef026b92be606f, type: 2}
+  - {fileID: 2100000, guid: da20c07ef1ba0ac4a9df1770d649083e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -454,7 +454,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46c9141d40325ac48bef026b92be606f, type: 2}
+  - {fileID: 2100000, guid: da20c07ef1ba0ac4a9df1770d649083e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -552,7 +552,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46c9141d40325ac48bef026b92be606f, type: 2}
+  - {fileID: 2100000, guid: da20c07ef1ba0ac4a9df1770d649083e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -598,9 +598,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2406366721532914292}
   - component: {fileID: 2808518902722886345}
-  - component: {fileID: 2241370718977212848}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Finish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,16 +644,3 @@ MonoBehaviour:
   quadX: {fileID: 2472735271306058931}
   quadY: {fileID: 1262614345649663104}
   quadZ: {fileID: 5307407610174435260}
---- !u!65 &2241370718977212848
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8214442780561986579}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

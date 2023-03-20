@@ -6,6 +6,7 @@ namespace CubeMaze.Scripts
     public class CubeMazeBuilder : MonoBehaviour
     {
         [SerializeField] private CubeMesh prefabWall;
+        [SerializeField] private CubeMesh prefabFinish;
 
         private Vector3 Scale => prefabWall.transform.lossyScale;
 
@@ -21,18 +22,27 @@ namespace CubeMaze.Scripts
             var dynamicPosition = transform.position;
             var dynamicRotation = transform.rotation;
 
+            var finishPosition = dynamicPosition;
+            MazeElement finish = maze[0][0][0].Value;
+
             for (int n = 0; n < maze.Z; n++)
             {
                 for (int i = 0; i < maze.Y; i++)
                 {
                     for (int j = 0; j < maze.X; j++)
                     {
-                        if (maze[n][i][j].Value.State == MazeElementState.Air)
-                            continue;
-                        EnableAllQuads();
                         var cubePosition = new Vector3(j, i, n);
                         dynamicPosition = transform.position + new Vector3(cubePosition.x * Scale.x,
                             cubePosition.y * Scale.y, cubePosition.z * Scale.z);
+                        
+                        if (finish.CountSteps < maze[n][i][j].Value.CountSteps)
+                        {
+                            finish = maze[n][i][j].Value;
+                            finishPosition = dynamicPosition;
+                        }
+
+                        if (maze[n][i][j].Value.State == MazeElementState.Air)
+                            continue;
                         
                         if ((j + 1 < maze.X) &&
                             (maze[n][i][j + 1].Value.State == MazeElementState.Wall))
@@ -54,9 +64,11 @@ namespace CubeMaze.Scripts
                             prefabWall.quad_Z.enabled = false;
                         
                         Instantiate(prefabWall, dynamicPosition, dynamicRotation);
+                        EnableAllQuads();
                     }
                 }
             }
+            Instantiate(prefabFinish, finishPosition, dynamicRotation);
         }
 
         private void EnableAllQuads()

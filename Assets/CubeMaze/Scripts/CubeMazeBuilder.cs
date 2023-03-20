@@ -5,7 +5,7 @@ namespace CubeMaze.Scripts
 {
     public class CubeMazeBuilder : MonoBehaviour
     {
-        [SerializeField] private GameObject prefabWall;
+        [SerializeField] private CubeMesh prefabWall;
 
         private Vector3 Scale => prefabWall.transform.lossyScale;
 
@@ -28,14 +28,45 @@ namespace CubeMaze.Scripts
                     for (int j = 0; j < maze.X; j++)
                     {
                         if (maze[n][i][j].Value.State == MazeElementState.Air)
-                            return;
-                        var cubePosition = new Vector3(n, i, j);
+                            continue;
+                        EnableAllQuads();
+                        var cubePosition = new Vector3(j, i, n);
                         dynamicPosition = transform.position + new Vector3(cubePosition.x * Scale.x,
                             cubePosition.y * Scale.y, cubePosition.z * Scale.z);
+                        
+                        if ((j + 1 < maze.X) &&
+                            (maze[n][i][j + 1].Value.State == MazeElementState.Wall))
+                            prefabWall.quadX.enabled = false;
+                        if ((j - 1 >= 0) &&
+                            (maze[n][i][j - 1].Value.State == MazeElementState.Wall))
+                            prefabWall.quad_X.enabled = false;
+                        if ((i + 1 < maze.Y) &&
+                            (maze[n][i + 1][j].Value.State == MazeElementState.Wall))
+                            prefabWall.quadY.enabled = false;
+                        if ((i - 1 >= 0) &&
+                            (maze[n][i - 1][j].Value.State == MazeElementState.Wall))
+                            prefabWall.quad_Y.enabled = false;
+                        if ((n + 1 < maze.Z) &&
+                            (maze[n + 1][i][j].Value.State == MazeElementState.Wall))
+                            prefabWall.quadZ.enabled = false;
+                        if ((n - 1 >= 0) &&
+                            (maze[n - 1][i][j].Value.State == MazeElementState.Wall))
+                            prefabWall.quad_Z.enabled = false;
+                        
                         Instantiate(prefabWall, dynamicPosition, dynamicRotation);
                     }
                 }
             }
+        }
+
+        private void EnableAllQuads()
+        {
+            prefabWall.quad_X.enabled = true;
+            prefabWall.quad_Y.enabled = true;
+            prefabWall.quad_Z.enabled = true;
+            prefabWall.quadX.enabled = true;
+            prefabWall.quadY.enabled = true;
+            prefabWall.quadZ.enabled = true;
         }
     }
 }
